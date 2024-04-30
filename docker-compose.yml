@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  postgres:
+    container_name: 'sandbox-postgres'
+    image: postgres:12.3-alpine
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=sandbox
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "postgres", "-d", "sandbox" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: on-failure
+    ports:
+      - "5432:5432"

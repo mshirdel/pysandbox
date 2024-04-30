@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Home page</h1>
+      <p>{{ today }}</p>
+      <p>test is ok</p>
+      <div id="btnRun" class="btn btn-primary">Run!</div>
+    </div>
+    <script src="{% static 'web/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'web/js/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'web/js/web.js' %}"></script>
+  </body>
+</html>
